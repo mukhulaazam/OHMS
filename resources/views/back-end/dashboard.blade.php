@@ -22,7 +22,7 @@
                 <div class="icon-box">
                     <i class='bx bx-bar-chart'></i>
                 </div>
-                <span class="sub-title">Conversion Rate</span>
+                <span class="sub-title">New Patient</span>
                 <h3>5.45% <span class="badge"><i class='bx bx-up-arrow-alt'></i> 56.9%</span></h3>
 
                 <div class="progress-list">
@@ -40,7 +40,7 @@
                 <div class="icon-box">
                     <i class='bx bx-bar-chart-square'></i>
                 </div>
-                <span class="sub-title">Conversion Value</span>
+                <span class="sub-title">Total Patient</span>
                 <h3>4.75% <span class="badge"><i class='bx bx-up-arrow-alt'></i> 32.1%</span></h3>
 
                 <div class="progress-list">

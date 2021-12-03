@@ -119,112 +119,9 @@
 
                             <img src="assets/img/germany-flag.jpg" alt="flag">
                         </a>
-
-                        <a href="#" class="dropdown-item d-flex justify-content-between align-items-center">
-                            <span>French</span>
-
-                            <img src="assets/img/france-flag.jpg" alt="flag">
-                        </a>
-
-                        <a href="#" class="dropdown-item d-flex justify-content-between align-items-center">
-                            <span>Spanish</span>
-
-                            <img src="assets/img/spain-flag.jpg" alt="flag">
-                        </a>
-
-                        <a href="#" class="dropdown-item d-flex justify-content-between align-items-center">
-                            <span>Russian</span>
-
-                            <img src="assets/img/russia-flag.jpg" alt="flag">
-                        </a>
-
-                        <a href="#" class="dropdown-item d-flex justify-content-between align-items-center">
-                            <span>Italian</span>
-
-                            <img src="assets/img/italy-flag.jpg" alt="flag">
-                        </a>
                     </div>
                 </li>
 
-                <li class="nav-item message-box dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        <div class="message-btn">
-                            <i class='bx bx-envelope'></i>
-
-                            <span class="badge badge-primary">4</span>
-                        </div>
-                    </a>
-
-                    <div class="dropdown-menu">
-                        <div class="dropdown-header d-flex justify-content-between align-items-center">
-                            <span class="title d-inline-block">4 New Message</span>
-                            <span class="clear-all-btn d-inline-block">Clear All</span>
-                        </div>
-
-                        <div class="dropdown-body">
-                            <a href="#" class="dropdown-item d-flex align-items-center">
-                                <div class="figure">
-                                    <img src="assets/img/user1.jpg" class="rounded-circle" alt="image">
-                                </div>
-
-                                <div class="content d-flex justify-content-between align-items-center">
-                                    <div class="text">
-                                        <span class="d-block">Sarah Taylor</span>
-                                        <p class="sub-text mb-0">UX/UI design</p>
-                                    </div>
-                                    <p class="time-text mb-0">2 sec ago</p>
-                                </div>
-                            </a>
-
-                            <a href="#" class="dropdown-item d-flex align-items-center">
-                                <div class="figure">
-                                    <img src="assets/img/user2.jpg" class="rounded-circle" alt="image">
-                                </div>
-
-                                <div class="content d-flex justify-content-between align-items-center">
-                                    <div class="text">
-                                        <span class="d-block">Lucy Eva</span>
-                                        <p class="sub-text mb-0">Web developers</p>
-                                    </div>
-                                    <p class="time-text mb-0">5 sec ago</p>
-                                </div>
-                            </a>
-
-                            <a href="#" class="dropdown-item d-flex align-items-center">
-                                <div class="figure">
-                                    <img src="assets/img/user3.jpg" class="rounded-circle" alt="image">
-                                </div>
-
-                                <div class="content d-flex justify-content-between align-items-center">
-                                    <div class="text">
-                                        <span class="d-block">James Anderson</span>
-                                        <p class="sub-text mb-0">Content whitter</p>
-                                    </div>
-                                    <p class="time-text mb-0">3 min ago</p>
-                                </div>
-                            </a>
-
-                            <a href="#" class="dropdown-item d-flex align-items-center">
-                                <div class="figure">
-                                    <img src="assets/img/user4.jpg" class="rounded-circle" alt="image">
-                                </div>
-
-                                <div class="content d-flex justify-content-between align-items-center">
-                                    <div class="text">
-                                        <span class="d-block">Steven Smith</span>
-                                        <p class="sub-text mb-0">Digital marketing</p>
-                                    </div>
-                                    <p class="time-text mb-0">7 min ago</p>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="dropdown-footer">
-                            <a href="#" class="dropdown-item">View All</a>
-                        </div>
-                    </div>
-                </li>
 
                 <li class="nav-item notification-box dropdown">
                     <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"
@@ -309,7 +206,8 @@
                     <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
                         <div class="menu-profile">
-                            <span class="name">{{ 'Hola,'.' ' .auth()->user()->name }}</span>
+                            <span
+                                class="name">{{Auth::user()->is_doctor == true ? 'Howdy, Dr.' : 'Hello,'}} {{Auth::user()->first_name }}</span>
                             <img src="assets/img/user1.jpg" class="rounded-circle" alt="image">
                         </div>
                     </a>
@@ -321,8 +219,9 @@
                             </div>
 
                             <div class="info text-center">
-                                <span class="name">Andro Smith</span>
-                                <p class="mb-3 email">hello@androsmith.com</p>
+                                <span class="name">{{Auth::user()->first_name}}</span>
+                                <p class="mb-3 email">{{Auth::user()->email}}</p>
+                                <p class="mb-3 email">{{Auth::user()->phone_no}}</p>
                             </div>
                         </div>
 
@@ -331,18 +230,6 @@
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class='bx bx-user'></i> <span>Profile</span>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class='bx bx-envelope'></i> <span>My Inbox</span>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class='bx bx-edit-alt'></i> <span>Edit Profile</span>
                                     </a>
                                 </li>
 
