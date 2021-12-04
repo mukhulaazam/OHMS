@@ -52,36 +52,71 @@
                     <span class="menu-title">Dashboard</span>
                 </a>
             </li>
+            @if(Auth::user()->user_type == '1X101')
+                <li class="nav-item">
+                    <a href="#" class="collapsed-nav-link nav-link" aria-expanded="false">
+                        <span class="icon"><i class='bx bx-cog'></i></span>
+                        <span class="menu-title">My Appointment</span>
+                    </a>
 
-            <li class="nav-item">
-                <a href="#" class="collapsed-nav-link nav-link" aria-expanded="false">
-                    <span class="icon"><i class='bx bx-cog'></i></span>
-                    <span class="menu-title">Setting</span>
-                </a>
+                    <ul class="sidemenu-nav-second-level">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span class="icon"><i class='bx bxs-inbox'></i></span>
+                                <span class="menu-title">List</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            @endif
+            @if(Auth::user()->user_type == '5X505')
+                <li class="nav-item">
+                    <a href="#" class="collapsed-nav-link nav-link" aria-expanded="false">
+                        <span class="icon"><i class='bx bx-cog'></i></span>
+                        <span class="menu-title">Patient List</span>
+                    </a>
 
-                <ul class="sidemenu-nav-second-level">
-                    <li class="nav-item">
-                        <a href="app-email.html" class="nav-link">
-                            <span class="icon"><i class='bx bxs-inbox'></i></span>
-                            <span class="menu-title">Inbox</span>
-                        </a>
-                    </li>
+                    <ul class="sidemenu-nav-second-level">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span class="icon"><i class='bx bxs-inbox'></i></span>
+                                <span class="menu-title">List</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            @endif
+            @if(Auth::user()->user_type == '7X707')
+                <li class="nav-item">
+                    <a href="#" class="collapsed-nav-link nav-link" aria-expanded="false">
+                        <span class="icon"><i class='bx bx-cog'></i></span>
+                        <span class="menu-title">Setting</span>
+                    </a>
 
-                    <li class="nav-item">
-                        <a href="email-read.html" class="nav-link">
-                            <span class="icon"><i class='bx bxs-badge-check'></i></span>
-                            <span class="menu-title">Read</span>
-                        </a>
-                    </li>
+                    <ul class="sidemenu-nav-second-level">
+                        <li class="nav-item">
+                            <a href="app-email.html" class="nav-link">
+                                <span class="icon"><i class='bx bxs-inbox'></i></span>
+                                <span class="menu-title">Inbox</span>
+                            </a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a href="email-compose.html" class="nav-link">
-                            <span class="icon"><i class='bx bx-send'></i></span>
-                            <span class="menu-title">Compose</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
+                        <li class="nav-item">
+                            <a href="email-read.html" class="nav-link">
+                                <span class="icon"><i class='bx bxs-badge-check'></i></span>
+                                <span class="menu-title">Read</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="email-compose.html" class="nav-link">
+                                <span class="icon"><i class='bx bx-send'></i></span>
+                                <span class="menu-title">Compose</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            @endif
         </ul>
     </div>
 </div>

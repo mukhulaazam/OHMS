@@ -68,6 +68,7 @@ class RegisterController extends Controller
         return User::create([
             'hno' => $this->generateHospitalId(),
             'first_name' => $data['first_name'],
+            'user_type' => '1X101',
             'last_name' => $data['last_name'],
             'phone_no' => $data['phone_no'],
             'email' => $data['email'],

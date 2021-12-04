@@ -16,6 +16,7 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('hno')->comment('unique id');
+            $table->string('user_type')->comment('1X101 = patient, 5X505 = doctor, 7X707 = admin');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique();
