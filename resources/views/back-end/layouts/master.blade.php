@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Vendors Min CSS -->
+    <link rel="stylesheet" href="cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="{{ asset('assets/css/vendors.min.css') }}">
     <!-- Style CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
@@ -20,107 +21,8 @@
 <body>
 
 <!-- Start Sidemenu Area -->
-<div class="sidemenu-area">
-    <div class="sidemenu-header">
-        <a href="#" class="navbar-brand d-flex align-items-center">
-            <img src="{{ asset('assets/img/small-logo.png') }}" alt="image">
-            <span>OHMS</span>
-        </a>
+@include('back-end.layouts.sidemenu')
 
-        <div class="burger-menu d-none d-lg-block">
-            <span class="top-bar"></span>
-            <span class="middle-bar"></span>
-            <span class="bottom-bar"></span>
-        </div>
-
-        <div class="responsive-burger-menu d-block d-lg-none">
-            <span class="top-bar"></span>
-            <span class="middle-bar"></span>
-            <span class="bottom-bar"></span>
-        </div>
-    </div>
-
-    <div class="sidemenu-body">
-        <ul class="sidemenu-nav metisMenu h-100" id="sidemenu-nav" data-simplebar>
-            <li class="nav-item-title">
-                Main
-            </li>
-
-            <li class="nav-item mm-active">
-                <a href="#" class="nav-link" aria-expanded="false">
-                    <span class="icon"><i class='bx bx-home-circle'></i></span>
-                    <span class="menu-title">Dashboard</span>
-                </a>
-            </li>
-            @if(Auth::user()->user_type == '1X101')
-                <li class="nav-item">
-                    <a href="#" class="collapsed-nav-link nav-link" aria-expanded="false">
-                        <span class="icon"><i class='bx bx-cog'></i></span>
-                        <span class="menu-title">My Appointment</span>
-                    </a>
-
-                    <ul class="sidemenu-nav-second-level">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <span class="icon"><i class='bx bxs-inbox'></i></span>
-                                <span class="menu-title">List</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            @endif
-            @if(Auth::user()->user_type == '5X505')
-                <li class="nav-item">
-                    <a href="#" class="collapsed-nav-link nav-link" aria-expanded="false">
-                        <span class="icon"><i class='bx bx-cog'></i></span>
-                        <span class="menu-title">Patient List</span>
-                    </a>
-
-                    <ul class="sidemenu-nav-second-level">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <span class="icon"><i class='bx bxs-inbox'></i></span>
-                                <span class="menu-title">List</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            @endif
-            @if(Auth::user()->user_type == '7X707')
-                <li class="nav-item">
-                    <a href="#" class="collapsed-nav-link nav-link" aria-expanded="false">
-                        <span class="icon"><i class='bx bx-cog'></i></span>
-                        <span class="menu-title">Setting</span>
-                    </a>
-
-                    <ul class="sidemenu-nav-second-level">
-                        <li class="nav-item">
-                            <a href="app-email.html" class="nav-link">
-                                <span class="icon"><i class='bx bxs-inbox'></i></span>
-                                <span class="menu-title">Inbox</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="email-read.html" class="nav-link">
-                                <span class="icon"><i class='bx bxs-badge-check'></i></span>
-                                <span class="menu-title">Read</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="email-compose.html" class="nav-link">
-                                <span class="icon"><i class='bx bx-send'></i></span>
-                                <span class="menu-title">Compose</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            @endif
-        </ul>
-    </div>
-</div>
-{{--@yield('sidemenu')--}}
 <!-- End Sidemenu Area -->
 
 <!-- Start Main Content Wrapper Area -->
@@ -298,28 +200,34 @@
         </div>
     </nav>
     <!-- End Top Navbar Area -->
+    <!-- Breadcrumb Area -->
+    <div class="breadcrumb-area">
+        <h1>Dashboard</h1>
+
+        <ol class="breadcrumb">
+            <li class="item"><a href="dashboard-analytics.html"><i class='bx bx-home-alt'></i></a></li>
+
+            <li class="item">Dashboard</li>
+
+            <li class="item">Analytics</li>
+        </ol>
+    </div>
+    <!-- End Breadcrumb Area -->
+
     <!-- TODO:: Dashboard appeared section -->
     @yield('content')
 
     <div class="flex-grow-1"></div>
 
     <!-- Start Footer End -->
-    <footer class="footer-area">
-        <div class="row align-items-center">
-            <div class="col-lg-6 col-sm-6 col-md-6">
-            </div>
-
-            <div class="col-lg-6 col-sm-6 col-md-6 text-right">
-                <p>Designed and Developed by OHMS v1.0</p>
-            </div>
-        </div>
-    </footer>
+    @include('back-end.layouts.footer')
     <!-- End Footer End -->
 
 </div>
 <!-- End Main Content Wrapper Area -->
 
 <!-- Vendors Min JS -->
+@stack('script')
 <script src="{{asset('assets/js/vendors.min.js')}}"></script>
 <!-- Custom JS -->
 <script src="{{asset('assets/js/custom.js')}}"></script>
