@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-// TODO :: All Front-end routes start here
+use App\Http\Controllers\{HomeController,AppointmentController,DoctorController};
+
 Route::get('/', function () {
     return view('front-end.index');
 });
@@ -10,6 +11,6 @@ Route::get('/', function () {
 // TODO :: Auth and Back-end routes start here
 Auth::routes();
 
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/doctor-list', [App\Http\Controllers\DoctorController::class, 'index'])->name('doctor.list');
-Route::get('/appointment', [App\Http\Controllers\AppointmentController::class, 'form'])->name('appointment');
+Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
+Route::get('/doctor-list', [DoctorController::class, 'index'])->name('doctor.list');
+Route::get('/appointment', [AppointmentController::class, 'form'])->name('appointment');

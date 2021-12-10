@@ -227,9 +227,10 @@
 <!-- End Main Content Wrapper Area -->
 
 <!-- Vendors Min JS -->
-@stack('script')
 <script src="{{asset('assets/js/vendors.min.js')}}"></script>
 <!-- Custom JS -->
 <script src="{{asset('assets/js/custom.js')}}"></script>
+@stack('script')
+
 </body>
 </html>
