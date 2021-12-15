@@ -213,7 +213,7 @@
                                                    class="btn btn-secondary py-3 px-4">
                                         @else
                                             <a href="{{ route('login') }}" class="btn btn-secondary py-3 px-4">
-                                                Login</a>
+                                                Book Appointment</a>
                                         @endauth
                                     </div>
                                 </div>

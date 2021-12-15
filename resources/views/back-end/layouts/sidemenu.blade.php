@@ -25,7 +25,7 @@
             </li>
 
             <li class="nav-item mm-active">
-                <a href="#" class="nav-link" aria-expanded="false">
+                <a href="{{ route('home') }}" class="nav-link" aria-expanded="false">
                     <span class="icon"><i class='bx bx-home-circle'></i></span>
                     <span class="menu-title">Dashboard</span>
                 </a>
@@ -39,10 +39,15 @@
 
                     <ul class="sidemenu-nav-second-level">
                         <li class="nav-item">
+                            <a href="{{ route('appointment.list') }}" class="nav-link">
+                                <span class="icon"><i class='bx bxs-inbox'></i></span>
+                                <span class="menu-title">My Appointments</span>
+                            </a>
                             <a href="{{ route('appointment') }}" class="nav-link">
                                 <span class="icon"><i class='bx bxs-inbox'></i></span>
                                 <span class="menu-title">Appointment Form</span>
                             </a>
+
                         </li>
                     </ul>
                 </li>
@@ -68,11 +73,39 @@
                 <li class="nav-item">
                     <a href="#" class="collapsed-nav-link nav-link" aria-expanded="false">
                         <span class="icon"><i class='bx bx-cog'></i></span>
+                        <span class="menu-title">Appointments</span>
+                    </a>
+                    <ul class="sidemenu-nav-second-level">
+                        <li class="nav-item">
+                            <a href="{{ route('appointment.list') }}" class="nav-link">
+                                <span class="icon"><i class='bx bxs-inbox'></i></span>
+                                <span class="menu-title">List</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="collapsed-nav-link nav-link" aria-expanded="false">
+                        <span class="icon"><i class='bx bx-cog'></i></span>
                         <span class="menu-title">Doctor</span>
                     </a>
                     <ul class="sidemenu-nav-second-level">
                         <li class="nav-item">
                             <a href="{{ route('doctor.list') }}" class="nav-link">
+                                <span class="icon"><i class='bx bxs-inbox'></i></span>
+                                <span class="menu-title">List</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="collapsed-nav-link nav-link" aria-expanded="false">
+                        <span class="icon"><i class='bx bx-cog'></i></span>
+                        <span class="menu-title">Patient</span>
+                    </a>
+                    <ul class="sidemenu-nav-second-level">
+                        <li class="nav-item">
+                            <a href="{{ route('patient.list') }}" class="nav-link">
                                 <span class="icon"><i class='bx bxs-inbox'></i></span>
                                 <span class="menu-title">List</span>
                             </a>
@@ -88,23 +121,9 @@
 
                     <ul class="sidemenu-nav-second-level">
                         <li class="nav-item">
-                            <a href="app-email.html" class="nav-link">
-                                <span class="icon"><i class='bx bxs-inbox'></i></span>
-                                <span class="menu-title">Inbox</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="email-read.html" class="nav-link">
+                            <a href="#" class="nav-link">
                                 <span class="icon"><i class='bx bxs-badge-check'></i></span>
-                                <span class="menu-title">Read</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="email-compose.html" class="nav-link">
-                                <span class="icon"><i class='bx bx-send'></i></span>
-                                <span class="menu-title">Compose</span>
+                                <span class="menu-title">Change Logo</span>
                             </a>
                         </li>
                     </ul>

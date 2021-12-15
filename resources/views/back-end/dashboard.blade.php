@@ -2,6 +2,7 @@
 
 @section('content')
     <!-- Start -->
+	@if(Auth::user()->user_type == '7X707')
     <div class="row">
         <div class="col-lg-3 col-md-6">
             <div class="stats-card-box">
@@ -75,5 +76,6 @@
             </div>
         </div>
     </div>
+	@endif
     <!-- End -->
 @endsection

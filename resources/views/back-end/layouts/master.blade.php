@@ -205,11 +205,11 @@
         <h1>Dashboard</h1>
 
         <ol class="breadcrumb">
-            <li class="item"><a href="dashboard-analytics.html"><i class='bx bx-home-alt'></i></a></li>
+            <li class="item"><a href="{{ route('home') }}"><i class='bx bx-home-alt'></i></a></li>
 
-            <li class="item">Dashboard</li>
+            <li class="item">@yield('brad-title')</li>
 
-            <li class="item">Analytics</li>
+{{--            <li class="item">Analytics</li>--}}
         </ol>
     </div>
     <!-- End Breadcrumb Area -->
@@ -230,7 +230,6 @@
 <script src="{{asset('assets/js/vendors.min.js')}}"></script>
 <!-- Custom JS -->
 <script src="{{asset('assets/js/custom.js')}}"></script>
-@stack('script')
 
 </body>
 </html>
