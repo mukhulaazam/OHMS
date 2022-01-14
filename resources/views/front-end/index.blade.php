@@ -116,7 +116,7 @@
                             <h1 class="mb-4">Welcome to our ohms centre</h1>
                             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
                                 there live the blind texts.</p>
-                            <p><a href="#" class="btn btn-primary">Book an appointment</a></p>
+                            <p><a href="{{route('appointment.post')}}" class="btn btn-primary">Book an appointment</a></p>
                         </div>
                     </div>
                 </div>
@@ -206,19 +206,15 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 mt-3"></div>
-                                <div class="col-md-6 mt-3">
-                                    <div class="form-group">
-                                        @auth()
-                                            <input type="submit" value="Book Appointment"
-                                                   class="btn btn-secondary py-3 px-4">
-                                        @else
-                                            <a href="{{ route('login') }}" class="btn btn-secondary py-3 px-4">
-                                                Book Appointment</a>
-                                        @endauth
-                                    </div>
-                                </div>
+
                             </div>
                         </form>
+                        <div class="col-md-6 mt-3">
+                            <div class="form-group">
+                                <a href="{{ route('appointment.post') }}" class="btn btn-secondary py-3 px-4">
+                                    Book Appointment</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-4 bg-white text-center p-5">
                         <div class="desc border-bottom pb-4">

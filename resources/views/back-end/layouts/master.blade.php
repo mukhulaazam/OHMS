@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Vendors Min CSS -->
-    <link rel="stylesheet" href="cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="{{ asset('assets/css/vendors.min.css') }}">
     <!-- Style CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.11.3/af-2.3.7/date-1.1.1/r-2.2.9/sb-1.3.0/datatables.min.css"/>
 
     <title>OHMS - Online Hospital Management System</title>
 
@@ -230,6 +230,11 @@
 <script src="{{asset('assets/js/vendors.min.js')}}"></script>
 <!-- Custom JS -->
 <script src="{{asset('assets/js/custom.js')}}"></script>
-
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.11.3/af-2.3.7/date-1.1.1/r-2.2.9/sb-1.3.0/datatables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#dataTableView').DataTable();
+    } );
+</script>
 </body>
 </html>

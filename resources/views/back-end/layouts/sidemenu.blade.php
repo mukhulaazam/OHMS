@@ -52,6 +52,29 @@
                     </ul>
                 </li>
             @endif
+
+            @if(Auth::user()->user_type == '7X707')
+                <li class="nav-item">
+                    <a href="#" class="collapsed-nav-link nav-link" aria-expanded="false">
+                        <span class="icon"><i class='bx bx-cog'></i></span>
+                        <span class="menu-title">Department</span>
+                    </a>
+
+                    <ul class="sidemenu-nav-second-level">
+                        <li class="nav-item">
+                            <a href="{{ route('department') }}" class="nav-link">
+                                <span class="icon"><i class='bx bxs-inbox'></i></span>
+                                <span class="menu-title">Create Department</span>
+                            </a>
+                            <a href="{{ route('departments') }}" class="nav-link">
+                                <span class="icon"><i class='bx bxs-inbox'></i></span>
+                                <span class="menu-title">Department List/span>
+                            </a>
+
+                        </li>
+                    </ul>
+                </li>
+            @endif
             @if(Auth::user()->user_type == '5X505')
                 <li class="nav-item">
                     <a href="#" class="collapsed-nav-link nav-link" aria-expanded="false">

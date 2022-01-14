@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(middleware:'auth');
+    }
+
     public function store(Request $request)
     {
         $appoint = Appointment::create([
