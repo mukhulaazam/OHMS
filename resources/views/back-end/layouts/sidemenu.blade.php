@@ -68,7 +68,29 @@
                             </a>
                             <a href="{{ route('departments') }}" class="nav-link">
                                 <span class="icon"><i class='bx bxs-inbox'></i></span>
-                                <span class="menu-title">Department List/span>
+                                <span class="menu-title">Department List</span>
+                            </a>
+
+                        </li>
+                    </ul>
+                </li>
+            @endif
+            @if(Auth::user()->user_type == '7X707')
+                <li class="nav-item">
+                    <a href="#" class="collapsed-nav-link nav-link" aria-expanded="false">
+                        <span class="icon"><i class='bx bx-cog'></i></span>
+                        <span class="menu-title">Doctor</span>
+                    </a>
+
+                    <ul class="sidemenu-nav-second-level">
+                        <li class="nav-item">
+                            <a href="{{ route('doctor.add') }}" class="nav-link">
+                                <span class="icon"><i class='bx bxs-inbox'></i></span>
+                                <span class="menu-title">Add Doctor</span>
+                            </a>
+                            <a href="{{ route('doctor.list') }}" class="nav-link">
+                                <span class="icon"><i class='bx bxs-inbox'></i></span>
+                                <span class="menu-title">Doctor List</span>
                             </a>
 
                         </li>
@@ -107,20 +129,20 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="collapsed-nav-link nav-link" aria-expanded="false">
-                        <span class="icon"><i class='bx bx-cog'></i></span>
-                        <span class="menu-title">Doctor</span>
-                    </a>
-                    <ul class="sidemenu-nav-second-level">
-                        <li class="nav-item">
-                            <a href="{{ route('doctor.list') }}" class="nav-link">
-                                <span class="icon"><i class='bx bxs-inbox'></i></span>
-                                <span class="menu-title">List</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a href="#" class="collapsed-nav-link nav-link" aria-expanded="false">--}}
+{{--                        <span class="icon"><i class='bx bx-cog'></i></span>--}}
+{{--                        <span class="menu-title">Doctor</span>--}}
+{{--                    </a>--}}
+{{--                    <ul class="sidemenu-nav-second-level">--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a href="{{ route('doctor.list') }}" class="nav-link">--}}
+{{--                                <span class="icon"><i class='bx bxs-inbox'></i></span>--}}
+{{--                                <span class="menu-title">List</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
                 <li class="nav-item">
                     <a href="#" class="collapsed-nav-link nav-link" aria-expanded="false">
                         <span class="icon"><i class='bx bx-cog'></i></span>
@@ -128,9 +150,9 @@
                     </a>
                     <ul class="sidemenu-nav-second-level">
                         <li class="nav-item">
-                            <a href="{{ route('patient.list') }}" class="nav-link">
+                            <a href="{{ route('in.patient.list') }}" class="nav-link">
                                 <span class="icon"><i class='bx bxs-inbox'></i></span>
-                                <span class="menu-title">List</span>
+                                <span class="menu-title">In Patient</span>
                             </a>
                         </li>
                     </ul>

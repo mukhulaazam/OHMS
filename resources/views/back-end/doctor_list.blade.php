@@ -1,31 +1,42 @@
 @extends('back-end.layouts.master')
 @section('brad-title','Doctor list')
 @section('content')
-    <table class="table">
-        <thead class="thead-light">
+    <div class="breadcrumb-area">
+        <h4 class="h4 text-bold">Doctor List</h4>
+    </div>
+    <table id="dataTableView" class="table table-striped table-bordered" style="width:100%">
+        <thead>
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">E-mail</th>
-            <th scope="col">Phone</th>
+            <th>Sl No.</th>
+            <th>Name</th>
+            <th>E-mail</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Degree</th>
+            <th>Department</th>
             <th>Action</th>
         </tr>
         </thead>
         <tbody>
-        @forelse($doctors as $doctor)
-           <tr>
-               <td>{{ $loop->index +1 }}</td>
-               <td>{{ $doctor->first_name }} {{ $doctor->last_name }}</td>
-               <td>{{ $doctor->email }}</td>
-               <td>{{ $doctor->phone_no }}</td>
-               <td>
-                   <a href="#" class="btn btn-info btn-sm"><i class="bx bxs-edit"></i></a>
-                   <a href="#" class="btn btn-warning btn-sm"><i class="bx bxs-stopwatch"></i></a>
-               </td>
-           </tr>
-        @empty
+        @forelse($doc as $d)
+            <tr>
+                <td>{{$loop->index+1}}</td>
+                <td>{{$d->name}}</td>
+                <td>{{$d->email}}</td>
+                <td>{{$d->phone}}</td>
+                <td>{{$d->address}}</td>
+                <td>{{$d->degree}}</td>
+                <td>{{$d->department->name}}</td>
+                <td>
+                    <a href="#" class="btn btn-warning btn-sm"><span class="bx bxs-edit-alt"></span></a>
+                    <a href="#" class="btn btn-danger btn-sm"><span class="bx bxs-trash-alt"></span></a>
+                </td>
+                @empty
+                    <td>Sorry! No Department found</td>
+            </tr>
         @endforelse
         </tbody>
+
     </table>
 @endsection
 

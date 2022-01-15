@@ -15,6 +15,14 @@ class CreateDoctorsTable extends Migration
     {
         Schema::create('doctors', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('department_id')->constrained()->cascadeOnDelete();
+            $table->string('name',150);
+            $table->string('phone')->unique();
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->longText('address');
+            $table->string('degree');
+            $table->string('img');
             $table->timestamps();
         });
     }
