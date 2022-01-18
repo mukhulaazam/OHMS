@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\InPatient;
+use App\Models\OutPatient;
 use Illuminate\Http\Request;
 
-class InPatientController extends Controller
+class OutPatientController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,7 @@ class InPatientController extends Controller
      */
     public function index()
     {
-        $in_patient = InPatient::latest('id')->paginate('11');
-//        return $in_patient;
-        return view('back-end.patient_list');
+        //
     }
 
     /**
@@ -43,10 +41,10 @@ class InPatientController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\InPatient  $inPatient
+     * @param  \App\Models\OutPatient  $outPatient
      * @return \Illuminate\Http\Response
      */
-    public function show(InPatient $inPatient)
+    public function show(OutPatient $outPatient)
     {
         //
     }
@@ -54,10 +52,10 @@ class InPatientController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\InPatient  $inPatient
+     * @param  \App\Models\OutPatient  $outPatient
      * @return \Illuminate\Http\Response
      */
-    public function edit(InPatient $inPatient)
+    public function edit(OutPatient $outPatient)
     {
         //
     }
@@ -66,10 +64,10 @@ class InPatientController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\InPatient  $inPatient
+     * @param  \App\Models\OutPatient  $outPatient
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, InPatient $inPatient)
+    public function update(Request $request, OutPatient $outPatient)
     {
         //
     }
@@ -77,10 +75,10 @@ class InPatientController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\InPatient  $inPatient
+     * @param  \App\Models\OutPatient  $outPatient
      * @return \Illuminate\Http\Response
      */
-    public function destroy(InPatient $inPatient)
+    public function destroy(OutPatient $outPatient)
     {
         //
     }

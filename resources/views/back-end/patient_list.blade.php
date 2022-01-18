@@ -43,7 +43,7 @@
 
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
+        <div class="modal-dialog modal-md" style="max-width: 60%">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">In Patient Details</h5>
@@ -65,14 +65,14 @@
                             </div>
 
                             <div class="col-md-12">
-                                <div class="form-group col-md-8">
+                                <div class="form-group col-8">
                                     <label for="in_p_name"><b>Guardian Name</b></label>
                                     <div>
                                         <input type="text" class="form-control" id="in_p_guardian_name" name="in_p_guardian_name" placeholder="Patient Name"/>
                                         <span id="in_p_guardian_name_error"></span>
                                     </div>
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-4">
                                     <label for="in_p_phone"><b>Guardian Phone</b></label>
                                     <div>
                                         <input type="text" class="form-control" id="in_p_guardian_phone" name="in_p_guardian_phone" type="text" placeholder="Phone"/>
