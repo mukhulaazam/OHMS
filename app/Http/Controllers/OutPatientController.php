@@ -10,11 +10,12 @@ class OutPatientController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
-        //
+//        $out_patient = OutPatient::latest()->paginate('11');
+        return view('back-end.out_patient');
     }
 
     /**
