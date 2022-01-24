@@ -1,12 +1,12 @@
-@extends('back-end.layouts.master')
-@section('brad-title','In Patient list')
-@section('content')
-    <div class="breadcrumb-area d-flex justify-content-between">
-        <span class="h4 text-bold ">Doctor List</span>
-        <button href="#" class="btn btn-primary btn-sm float-right"  data-toggle="modal"
-                data-target="#staticBackdrop">Add Patient</button>
-    </div>
 
+@extends('back-end.layouts.master')
+@section('brad-title','Floor list')
+@section('content')
+    <div class="breadcrumb-area">
+        <h4 class="h4 text-bold">Bed Floor List</h4>
+        <button href="#" class="btn btn-primary btn-sm float-end"  data-toggle="modal"
+                data-target="#staticBackdrop">Add Bed Floor</button>
+    </div>
     <table id="dataTableView" class="table table-striped table-bordered" style="width:100%">
         <thead>
         <tr>
@@ -52,13 +52,27 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <form id="modal-form" action="{{route('bed.floor')}}">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" id="floor_name" name="floor_name">
+                                <span id="floor_name_error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea class="form-control" id="floor_description" name="floor_des"></textarea>
+                                <span id="floor_description_error"></span>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary submit">Save</button>
+                        </div>
+                    </div>
+                </form>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
-                </div>
             </div>
         </div>
     </div>

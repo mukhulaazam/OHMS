@@ -16,7 +16,7 @@ class DoctorController extends Controller
     public function index()
     {
         $doc = Doctor::with(['department'])->latest()->paginate('11');
-        return view('back-end.doctor_list',compact('doc'));
+        return view('back-end.doctor_list', compact('doc'));
     }
 
     /**
@@ -68,8 +68,12 @@ class DoctorController extends Controller
             'department_id' => $request->department_id,
         ];
 
-        Doctor::create($data);
-        return redirect()->back();
+        try {
+            Doctor::create($data);
+            return redirect()->route('doctor.list');
+        } catch (\Exception $ex) {
+            return $ex->getMessage();
+        }
     }
 
     /**

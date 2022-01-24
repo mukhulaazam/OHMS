@@ -15,7 +15,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="input">Description</label>
-                        <textarea name="des" id="input" class="form-control"  rows="5"></textarea>
+                        <input type="text" class="form-control" name="des" id="input">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>

@@ -18,7 +18,7 @@
                 <td>{{$dep->des}}</td>
                 <td>
                     <a href="#" class="btn btn-warning btn-sm"><span class="bx bxs-edit-alt"></span></a>
-                    <a href="#" class="btn btn-danger btn-sm"><span class="bx bxs-trash-alt"></span></a>
+                    <a href="#" class="btn btn-danger btn-sm" data="{{$dep->id}}"><span class="bx bxs-trash-alt"></span></a>
                 </td>
                 @empty
                     <td>Sorry! No Department found</td>

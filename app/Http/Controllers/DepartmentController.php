@@ -11,7 +11,7 @@ class DepartmentController extends Controller
     {
         $departments = Department::latest('id')->paginate('11');
 
-        return view('back-end.depart-list',compact('departments'));
+        return view('back-end.depart-list', compact('departments'));
     }
 
     public function show()
@@ -29,11 +29,19 @@ class DepartmentController extends Controller
         $data = [
             'name' => $request->name,
             'des' => $request->des,
-            'slug' => \Str::slug($request->name,'-')
+            'slug' => \Str::slug($request->name, '-')
         ];
 
-        Department::create($data);
+        try {
+            Department::create($data);
+            return redirect()->route('departments');
+        } catch (\Exception $exception) {
+            return $exception->getMessage();
+        }
+    }
 
-        return view('back-end.departments');
+    public function destroy($id)
+    {
+        return $id;
     }
 }
