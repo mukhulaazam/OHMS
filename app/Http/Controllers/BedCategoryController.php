@@ -2,25 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BedCategory;
 use App\Models\BedFloor;
 use Illuminate\Http\Request;
 use PHPUnit\Exception;
 
-class BedFloorController extends Controller
+class BedCategoryController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $bed_floor = BedFloor::latest('id')->paginate('5');
-        return view('back-end.floor.floor', compact('bed_floor'));
+        $floor = BedFloor::get(['id', 'name']);
+        $bc = BedCategory::with('floors')->latest('id')->paginate('5');
+        return view('back-end.bed_category', compact(['floor','bc']));
     }
 
     /**
@@ -37,48 +40,50 @@ class BedFloorController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
+//        return $request;
         $request->validate([
+            'bed_flood_id' => 'required',
             'name' => 'required',
             'des' => 'required',
         ]);
 
         $data = [
+            'bed_floor_id' => $request->bed_floor_id,
             'name' => $request->name,
             'des' => $request->des,
         ];
 
         try {
-            BedFloor::create($data);
-            return redirect()->route('bed.floor');
+//            return $data;
+            BedCategory::create($data);
+            return redirect()->route('bc.index');
         } catch (Exception $ex) {
             return $ex->getMessage();
         }
-
-
     }
 
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\BedFloor $bedFloor
+     * @param \App\Models\BedCategory $bedCategory
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(BedCategory $bedCategory)
     {
-        return BedFloor::find($id);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\BedFloor $bedFloor
+     * @param \App\Models\BedCategory $bedCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(BedFloor $bedFloor)
+    public function edit(BedCategory $bedCategory)
     {
         //
     }
@@ -87,10 +92,10 @@ class BedFloorController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\BedFloor $bedFloor
+     * @param \App\Models\BedCategory $bedCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BedFloor $bedFloor)
+    public function update(Request $request, BedCategory $bedCategory)
     {
         //
     }
@@ -98,13 +103,12 @@ class BedFloorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\BedFloor $bedFloor
-     * @return \Illuminate\Http\RedirectResponse
+     * @param \App\Models\BedCategory $bedCategory
+     * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy( $id)
     {
-         BedFloor::find($id)->delete();
-
-         return redirect()->back();
+        BedCategory::find($id)->delete();
+        return redirect()->back();
     }
 }

@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\
-{HomeController,AppointmentController,DoctorController,BedFloorController,InPatientController,DepartmentController,OutPatientController};
+{HomeController,AppointmentController,BedController,BedCategoryController,DoctorController,BedFloorController,InPatientController,DepartmentController,OutPatientController};
 
 Route::get('/', function () {
     return view('front-end.index');
@@ -28,7 +28,20 @@ Route::middleware(['web'])->group(function () {
 
     Route::controller(BedFloorController::class)->group(function(){
         Route::get('/floor','index')->name('bed.floor');
-        Route::post('/floor','create')->name('bed.floor');
+        Route::post('/floor','store')->name('bed.floor');
+        Route::get('/floor/{id}/edit','show')->name('bed.floor.edit');
+        Route::get('/floor/{id}','destroy')->name('bed.destroy');
+    });
+
+    Route::controller(BedCategoryController::class)->group(function(){
+        Route::get('/bed-category','index')->name('bc.index');
+        Route::post('/bed-category','store')->name('bc.store');
+        Route::get('/bed-category/{id}','destroy')->name('bc.destroy');
+    });
+    Route::controller(BedController::class)->group(function(){
+        Route::get('/bed','index')->name('b.index');
+        Route::post('/bed','store')->name('b.store');
+        Route::get('/bed/{id}','destroy')->name('b.destroy');
     });
 
     Route::controller(DepartmentController::class)->group(function (){

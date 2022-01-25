@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBedFloorsTable extends Migration
+class CreateBedsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateBedFloorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bed_floors', function (Blueprint $table) {
+        Schema::create('beds', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('bed_category_id')->constrained();
             $table->string('name');
             $table->string('des');
             $table->timestamps();
@@ -28,6 +29,6 @@ class CreateBedFloorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bed_floors');
+        Schema::dropIfExists('beds');
     }
 }

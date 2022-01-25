@@ -77,7 +77,7 @@
                 <li class="nav-item">
                     <a href="#" class="collapsed-nav-link nav-link" aria-expanded="false">
                         <span class="icon"><i class='bx bx-cog'></i></span>
-                        <span class="menu-title">Bed</span>
+                        <span class="menu-title">Bed Management</span>
                     </a>
 
                     <ul class="sidemenu-nav-second-level">
@@ -86,9 +86,13 @@
                                 <span class="icon"><i class='bx bxs-inbox'></i></span>
                                 <span class="menu-title">Bed Floor</span>
                             </a>
-                            <a href="{{ route('departments') }}" class="nav-link">
+                            <a href="{{ route('bc.index') }}" class="nav-link">
                                 <span class="icon"><i class='bx bxs-inbox'></i></span>
-                                <span class="menu-title">Department List</span>
+                                <span class="menu-title">Bed Category</span>
+                            </a>
+                            <a href="{{ route('b.index') }}" class="nav-link">
+                                <span class="icon"><i class='bx bxs-inbox'></i></span>
+                                <span class="menu-title">Bed</span>
                             </a>
 
                         </li>
