@@ -18,12 +18,26 @@
         </tr>
         </thead>
         <tbody>
-        @forelse($b as $b)
+{{--        @foreach($b as $bd)--}}
+{{--            {{$bd->id}}--}}
+{{--            @if($bd->bed_category)--}}
+{{--                @foreach($bd->bed_category as $c)--}}
+{{--                    {{$c->name}}--}}
+{{--                @endforeach--}}
+{{--            @endif--}}
+{{--        @endforeach--}}
+        @forelse($b as $bd)
             <tr>
-                <td>{{$loop->index+1}}</td>
-                <td>{{$b->name}}</td>
-                <td>{{$b->bed_category }}</td>
-                <td>{{$b->bed_category}}</td>
+                {{$bd->bed_category->name}}
+{{--                <td>{{$loop->index+1}}</td>--}}
+{{--                <td>{{$b->name}}</td>--}}
+{{--                <td>{{$b->bed_category }}</td>--}}
+{{--                <td>{{$b->bed_category}}</td>--}}
+{{--                @if($b->bed_category)--}}
+{{--                    @foreach($b->bed_category as $c)--}}
+{{--                        {{$c->name}}--}}
+{{--                    @endforeach--}}
+{{--                @endif--}}
                 {{--                <td>--}}
                 {{--                    <a href="#" class="btn btn-warning btn-sm"--}}
                 {{--                       data-toggle="modal"--}}

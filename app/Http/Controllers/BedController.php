@@ -17,7 +17,7 @@ class BedController extends Controller
     public function index()
     {
         $bc = BedCategory::all(['id', 'name']);
-        $b = Bed::with(['bed_category.floors'])->latest()->paginate('5');
+        $b = Bed::with(['bed_category.floors'])->latest()->paginate('5')->values();
         return view('back-end.bed', compact(['bc', 'b']));
     }
 

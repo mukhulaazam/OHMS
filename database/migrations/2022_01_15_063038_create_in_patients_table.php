@@ -15,6 +15,7 @@ class CreateInPatientsTable extends Migration
     {
         Schema::create('in_patients', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('doctor_id')->constrained()->cascadeOnDelete();
             $table->string('serial_no')->unique();
             $table->string('p_name', 50);
             $table->string('p_phone', 50);
