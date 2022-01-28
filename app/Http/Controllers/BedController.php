@@ -10,14 +10,23 @@ use PHPUnit\Exception;
 class BedController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $bc = BedCategory::all(['id', 'name']);
-        $b = Bed::with(['bed_category.floors'])->latest()->paginate('5')->values();
+        $bc = BedCategory::all(['id', 'name','bed_floor_id']);
+        $b = Bed::with(['bed_category.floors'])->latest()->get();
         return view('back-end.bed', compact(['bc', 'b']));
     }
 
@@ -100,8 +109,10 @@ class BedController extends Controller
      * @param \App\Models\Bed $bed
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Bed $bed)
+    public function destroy($id)
     {
-        //
+        Bed::findOrFail($id)->delete();
+
+        return redirect()->route('b.index');
     }
 }

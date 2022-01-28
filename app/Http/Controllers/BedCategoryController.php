@@ -21,8 +21,8 @@ class BedCategoryController extends Controller
      */
     public function index()
     {
-        $floor = BedFloor::get(['id', 'name']);
-        $bc = BedCategory::with('floors')->latest('id')->paginate('5');
+        $floor = BedFloor::latest('id')->get(['id', 'name']);
+        $bc=  BedCategory::with('floors')->latest('id')->paginate('5');
         return view('back-end.bed_category', compact(['floor','bc']));
     }
 
@@ -45,11 +45,11 @@ class BedCategoryController extends Controller
     public function store(Request $request)
     {
 //        return $request;
-        $request->validate([
-            'bed_flood_id' => 'required',
-            'name' => 'required',
-            'des' => 'required',
-        ]);
+//        $request->validate([
+//            'bed_flood_id' => 'required',
+//            'name' => 'required',
+//            'des' => 'required',
+//        ]);
 
         $data = [
             'bed_floor_id' => $request->bed_floor_id,

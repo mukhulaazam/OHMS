@@ -179,6 +179,12 @@
                                 <span class="menu-title">In Patient</span>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('out.patient.list') }}" class="nav-link">
+                                <span class="icon"><i class='bx bxs-inbox'></i></span>
+                                <span class="menu-title">Out Patient</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 

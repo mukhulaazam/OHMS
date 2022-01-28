@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class DepartmentController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $departments = Department::latest('id')->paginate('11');
@@ -42,6 +52,8 @@ class DepartmentController extends Controller
 
     public function destroy($id)
     {
-        return $id;
+        Department::find($id)->delete();
+
+        return redirect()->route('departments');
     }
 }

@@ -13,6 +13,6 @@ class Bed extends Model
 
     public function bed_category()
     {
-        return $this->hasOne(BedCategory::class,'id')->select(['id','name','des']);
+        return $this->belongsTo(BedCategory::class,'bed_category_id','id')->select('id','name','bed_floor_id');
     }
 }

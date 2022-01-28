@@ -22,7 +22,7 @@
             <tr>
                 <td>{{$loop->index+1}}</td>
                 <td>{{$b->name}}</td>
-                <td>{{$b->floors}}</td>
+                <td>{{$b->floors->name}}</td>
                 <td>{{$b->des}}</td>
                 <td>
                     <a href="#" class="btn btn-warning btn-sm"

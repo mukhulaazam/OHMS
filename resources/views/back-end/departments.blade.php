@@ -1,9 +1,9 @@
 @extends('back-end.layouts.master')
-
+@section('brad-title','Create Department')
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h3 class="h3">Appointment Form</h3>
+            <h3 class="h3">Department Form</h3>
         </div>
         <div class="card-body">
             <form action="{{route('department.create')}}" method="post">

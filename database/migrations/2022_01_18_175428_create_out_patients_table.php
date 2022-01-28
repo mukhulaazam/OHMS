@@ -15,6 +15,16 @@ class CreateOutPatientsTable extends Migration
     {
         Schema::create('out_patients', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('phone');
+            $table->string('address');
+            $table->string('age');
+            $table->string('gender');
+            $table->string('blood_group');
+            $table->string('height');
+            $table->string('weight');
+            $table->string('bp');
+            $table->string('symptoms');
             $table->timestamps();
         });
     }

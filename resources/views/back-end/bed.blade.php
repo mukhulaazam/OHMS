@@ -11,39 +11,30 @@
         <thead>
         <tr>
             <th>Sl No.</th>
-            <th>Name</th>
-            <th>Floor</th>
+            <th>Bed Category</th>
+            <th>Bed Number</th>
+            <th>Bed Floor</th>
             <th>Description</th>
             <th>Action</th>
         </tr>
         </thead>
         <tbody>
-{{--        @foreach($b as $bd)--}}
-{{--            {{$bd->id}}--}}
-{{--            @if($bd->bed_category)--}}
-{{--                @foreach($bd->bed_category as $c)--}}
-{{--                    {{$c->name}}--}}
-{{--                @endforeach--}}
-{{--            @endif--}}
-{{--        @endforeach--}}
         @forelse($b as $bd)
             <tr>
-                {{$bd->bed_category->name}}
-{{--                <td>{{$loop->index+1}}</td>--}}
-{{--                <td>{{$b->name}}</td>--}}
-{{--                <td>{{$b->bed_category }}</td>--}}
-{{--                <td>{{$b->bed_category}}</td>--}}
-{{--                @if($b->bed_category)--}}
-{{--                    @foreach($b->bed_category as $c)--}}
-{{--                        {{$c->name}}--}}
-{{--                    @endforeach--}}
-{{--                @endif--}}
-                {{--                <td>--}}
-                {{--                    <a href="#" class="btn btn-warning btn-sm"--}}
-                {{--                       data-toggle="modal"--}}
-                {{--                       data-target="#staticBackdropEdit"><span class="bx bxs-edit-alt"></span></a>--}}
-                {{--                    <a href="{{route('bc.destroy',['id' => $b->id])}}" id="staticBackdropEdit" onclick="alert('Are you sure?')" class="btn btn-danger btn-sm"><span class="bx bxs-trash-alt"></span></a>--}}
-                {{--                </td>--}}
+
+                <td>{{$loop->index+1}}</td>
+                <td>{{$bd->bed_category->name }}</td>
+                <td>{{$bd->name}}</td>
+                <td>{{$bd->bed_category->floors->name}}</td>
+                <td>{{$bd->des }}</td>
+                <td>
+                    <a href="#" class="btn btn-warning btn-sm"
+                       data-toggle="modal"
+                       data-target="#staticBackdropEdit"><span class="bx bxs-edit-alt"></span></a>
+                    <a href="{{route('b.destroy',['id' => $bd->id])}}" id="staticBackdropEdit"
+                       onclick="alert('Are you sure?')" class="btn btn-danger btn-sm"><span
+                            class="bx bxs-trash-alt"></span></a>
+                </td>
                 @empty
                     <td>Sorry! No Bed Category found</td>
             </tr>

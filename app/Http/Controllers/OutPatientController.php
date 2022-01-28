@@ -8,14 +8,24 @@ use Illuminate\Http\Request;
 class OutPatientController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
-//        $out_patient = OutPatient::latest()->paginate('11');
-        return view('back-end.out_patient');
+        $out_patient = OutPatient::latest()->paginate('11');
+        return view('back-end.out_patient',compact('out_patient'));
     }
 
     /**
@@ -36,7 +46,14 @@ class OutPatientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        return $request;
+
+        try {
+            OutPatient::create($request->all());
+            return redirect()->back()->with('success', 'Out Patient Created Successfully');
+        } catch (\Exception $exception) {
+            return $exception->getMessage();
+        }
     }
 
     /**
@@ -79,8 +96,10 @@ class OutPatientController extends Controller
      * @param  \App\Models\OutPatient  $outPatient
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OutPatient $outPatient)
+    public function destroy($id)
     {
-        //
+        OutPatient::find($id)->delete();
+
+        return redirect()->back()->with('success', 'Out Patient Deleted Successfully');
     }
 }

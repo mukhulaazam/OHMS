@@ -13,6 +13,6 @@ class BedCategory extends Model
 
     public function floors()
     {
-        return $this->hasMany(BedFloor::class, 'id')->select(['id', 'name', 'des']);
+        return $this->belongsTo(BedFloor::class,'bed_floor_id','id')->orderBy('id')->select(['id','name']);
     }
 }

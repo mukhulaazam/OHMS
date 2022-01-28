@@ -9,6 +9,16 @@ use Illuminate\Http\Request;
 class DoctorController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
@@ -116,8 +126,10 @@ class DoctorController extends Controller
      * @param \App\Models\Doctor $doctor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Doctor $doctor)
+    public function destroy($id)
     {
-        //
+        Doctor::findOrFail($id)->delete();
+
+        return redirect()->route('doctor.list');
     }
 }

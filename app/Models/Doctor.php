@@ -41,6 +41,6 @@ class Doctor extends Authenticatable
 
     public function department()
     {
-        return $this->belongsTo(Department::class);
+        return $this->belongsTo(Department::class)->select('id', 'name');
     }
 }
