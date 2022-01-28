@@ -16,9 +16,9 @@ class CreateInPatientsTable extends Migration
         Schema::create('in_patients', function (Blueprint $table) {
             $table->id();
             $table->foreignId('doctor_id')->constrained()->cascadeOnDelete();
-            $table->string('serial_no')->unique();
-            $table->string('p_name', 50);
-            $table->string('p_phone', 50);
+            $table->foreignId('bed_id')->constrained()->cascadeOnDelete();
+            $table->string('name', 50);
+            $table->string('phone', 50);
             $table->string('g_name', 50);
             $table->string('g_phone', 50);
             $table->tinyInteger('gender');
@@ -28,11 +28,11 @@ class CreateInPatientsTable extends Migration
             $table->string('weight', 50);
             $table->string('bp', 50);
             $table->string('symptoms', 50);
-            $table->string('address', 110);
+            $table->longText('des');
             $table->dateTime('admission_date', 0);
             $table->string('case', 110);
             $table->string('casualty', 10);
-            $table->string('old_patient', 10);
+            $table->tinyInteger('old_patient')->default(0);
             $table->string('reference', 60);
             $table->timestamps();
         });

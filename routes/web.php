@@ -15,9 +15,6 @@ Auth::routes();
 Route::middleware(['web'])->group(function () {
     Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
 
-    Route::get('/in-patient', [InPatientController::class, 'index'])->name('in.patient.list');
-
-
     Route::controller(AppointmentController::class)->group(function () {
         Route::get('/appointment', 'form')->name('appointment');
         Route::post('/appointment', 'store')->name('appointment.post');
@@ -62,6 +59,13 @@ Route::middleware(['web'])->group(function () {
         Route::post('out-patient','store')->name('out.patient.store');
         Route::get('out-patient/{id}','destroy')->name('out.patient.destroy');
     });
+
+    Route::controller(InPatientController::class)->group(function (){
+        Route::get('in-patient','index')->name('in.patient.list');
+        Route::post('in-patient','store')->name('in.patient.store');
+        Route::get('in-patient/{id}','destroy')->name('in.patient.destroy');
+    });
+
 });
 
 

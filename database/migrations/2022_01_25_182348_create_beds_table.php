@@ -18,6 +18,7 @@ class CreateBedsTable extends Migration
             $table->foreignId('bed_category_id')->constrained();
             $table->string('name');
             $table->string('des');
+            $table->tinyInteger('is_booked')->default('0');
             $table->timestamps();
         });
     }
