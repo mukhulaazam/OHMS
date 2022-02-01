@@ -76,20 +76,16 @@ Route::middleware(['web'])->group(function () {
     });
 
 
-    Route::controller(MedicineCategoryController::class)->group([
-        'as' => 'medicine.',
-    ],function () {
-        Route::get('/medicine', 'index')->name('index');
-        Route::post('/medicine', 'store')->name('store');
-        Route::get('/medicine/{id}', 'destroy')->name('destroy');
+    Route::controller(MedicineCategoryController::class)->group(function () {
+        Route::get('/medicine-category', 'index')->name('mc.index');
+        Route::post('/medicine-category', 'store')->name('mc.store');
+        Route::get('/medicine-category/{id}', 'destroy')->name('mc.destroy');
     });
 
-    Route::controller(MedicineController::class)->group([
-        'as' => 'medicine.',
-    ],function () {
-        Route::get('/medicine', 'index')->name('index');
-        Route::post('/medicine', 'store')->name('store');
-        Route::get('/medicine/{id}', 'destroy')->name('destroy');
+    Route::controller(MedicineController::class)->group(function () {
+        Route::get('/medicine', 'index')->name('medicine.index');
+        Route::post('/medicine', 'store')->name('medicine.store');
+        Route::get('/medicine/{id}', 'destroy')->name('medicine.destroy');
     });
 });
 

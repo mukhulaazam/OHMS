@@ -7,24 +7,12 @@ use Illuminate\Http\Request;
 
 class MedicineCategoryController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $mc = MedicineCategory::all();
+        return view('back-end.medicine.category.index', compact('mc'));
     }
 
     /**
@@ -37,15 +25,15 @@ class MedicineCategoryController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        try {
+            MedicineCategory::create($request->all());
+            return redirect()->back()->with('success', 'Medicine Category Created Successfully');
+        } catch (\Exception $exception) {
+            return $exception->getMessage();
+        }
     }
 
     /**
@@ -82,14 +70,14 @@ class MedicineCategoryController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\MedicineCategory  $medicineCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(MedicineCategory $medicineCategory)
+
+    public function destroy($id)
     {
-        //
+        try {
+            MedicineCategory::find($id)->delete();
+            return redirect()->back()->with('success', 'Medicine Category Deleted Successfully');
+        } catch (\Exception $exception) {
+            return $exception->getMessage();
+        }
     }
 }

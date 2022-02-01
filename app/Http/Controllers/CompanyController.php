@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Medicine;
+use App\Models\Company;
 use Illuminate\Http\Request;
 
-class MedicineController extends Controller
+class CompanyController extends Controller
 {
-
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $medicines = Medicine::all();
-        return view('back-end.medicine.index', compact('medicines'));
+        //
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -40,10 +41,10 @@ class MedicineController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Medicine  $medicine
+     * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function show(Medicine $medicine)
+    public function show(Company $company)
     {
         //
     }
@@ -51,10 +52,10 @@ class MedicineController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Medicine  $medicine
+     * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function edit(Medicine $medicine)
+    public function edit(Company $company)
     {
         //
     }
@@ -63,10 +64,10 @@ class MedicineController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Medicine  $medicine
+     * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Medicine $medicine)
+    public function update(Request $request, Company $company)
     {
         //
     }
@@ -74,10 +75,10 @@ class MedicineController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Medicine  $medicine
+     * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Medicine $medicine)
+    public function destroy(Company $company)
     {
         //
     }

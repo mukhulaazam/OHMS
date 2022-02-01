@@ -16,9 +16,9 @@ class CreateMedicinesTable extends Migration
         Schema::create('medicines', function (Blueprint $table) {
             $table->id();
             $table->foreignId('medicine_category_id')->constrained()->onDelete('cascade');
+            $table->foreignId('company_id')->constrained()->onDelete('cascade');
             $table->string('name');
             $table->string('generic_name');
-            $table->string('company');
             $table->integer('p_price');
             $table->integer('s_price');
             $table->integer('quantity');
