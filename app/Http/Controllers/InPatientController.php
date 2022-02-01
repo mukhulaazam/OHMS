@@ -27,8 +27,16 @@ class InPatientController extends Controller
     public function index()
     {
         $inp = InPatient::latest('id')->paginate('11');
-        $bed = Bed::with('bed_category.floors')->where('is_booked','=','0')->select('id','name','is_booked','bed_category_id')->get();
-        $doc = Doctor::with('department')->select('id','name','department_id')->get();
+
+        $bed = Bed::with('bed_category.floors')
+            ->where('is_booked','=','0')
+            ->select('id','name','is_booked','bed_category_id')
+            ->get();
+
+        $doc = Doctor::with('department')
+            ->select('id','name','department_id')
+            ->get();
+
 //        return $in_patient;
         return view('back-end.patient_list',compact('inp','bed','doc'));
     }
@@ -52,7 +60,10 @@ class InPatientController extends Controller
     public function store(Request $request)
     {
         try {
-            InPatient::create($request->all());
+            $inp = InPatient::create($request->all());
+            if ($inp){
+                Bed::where('id',$request->bed_id)->update(['is_booked'=>'1']);
+            }
             return redirect()->back()->with('message','Patient Added Successfully');
         } catch (\Exception $ex) {
             return $ex->getMessage();

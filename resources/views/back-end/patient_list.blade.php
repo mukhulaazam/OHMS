@@ -27,7 +27,7 @@
                         <td>{{$loop->index+1}}</td>
                         <td>{{$ip->name}}</td>
                         <td>{{$ip->gender}}</td>
-                        
+
                         <td>
                             <a href="#" class="btn btn-warning btn-sm"><span class="bx bxs-edit-alt"></span></a>
                             <a href="#" class="btn btn-danger btn-sm"><span class="bx bxs-trash-alt"></span></a>

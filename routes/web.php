@@ -2,8 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\
-{HomeController,AppointmentController,BedController,BedCategoryController,DoctorController,BedFloorController,InPatientController,DepartmentController,OutPatientController};
+use App\Http\Controllers\{HomeController,
+    AppointmentController,
+    BedController,
+    BedCategoryController,
+    DoctorController,
+    BedFloorController,
+    InPatientController,
+    DepartmentController,
+    MedicineCategoryController,
+    MedicineController,
+    OutPatientController};
 
 Route::get('/', function () {
     return view('front-end.index');
@@ -66,6 +75,22 @@ Route::middleware(['web'])->group(function () {
         Route::get('in-patient/{id}','destroy')->name('in.patient.destroy');
     });
 
+
+    Route::controller(MedicineCategoryController::class)->group([
+        'as' => 'medicine.',
+    ],function () {
+        Route::get('/medicine', 'index')->name('index');
+        Route::post('/medicine', 'store')->name('store');
+        Route::get('/medicine/{id}', 'destroy')->name('destroy');
+    });
+
+    Route::controller(MedicineController::class)->group([
+        'as' => 'medicine.',
+    ],function () {
+        Route::get('/medicine', 'index')->name('index');
+        Route::post('/medicine', 'store')->name('store');
+        Route::get('/medicine/{id}', 'destroy')->name('destroy');
+    });
 });
 
 
