@@ -146,6 +146,12 @@
                     </a>
                     <ul class="sidemenu-nav-second-level">
                         <li class="nav-item">
+                            <a href="{{ route('com.index') }}" class="nav-link">
+                                <span class="icon"><i class='bx bxs-inbox'></i></span>
+                                <span class="menu-title">Add Company</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('mc.index') }}" class="nav-link">
                                 <span class="icon"><i class='bx bxs-inbox'></i></span>
                                 <span class="menu-title">Medicine Category List</span>

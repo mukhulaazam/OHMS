@@ -7,14 +7,11 @@ use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $com = Company::latest()->get();
+        return view('back-end.medicine.company.index',compact('com'));
     }
 
     /**
@@ -27,15 +24,14 @@ class CompanyController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        try {
+            Company::create($request->all());
+            return redirect()->back()->with('success', 'Company Created Successfully');
+        } catch (\Excaption $ex) {
+        }
     }
 
     /**
@@ -72,14 +68,10 @@ class CompanyController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Company  $company
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Company $company)
+
+    public function destroy($id)
     {
-        //
+        Company::find($id)->delete();
+        return redirect()->back()->with('success', 'Company Deleted Successfully');
     }
 }

@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\{HomeController,
+use App\Http\Controllers\{CompanyController,
+    HomeController,
     AppointmentController,
     BedController,
     BedCategoryController,
@@ -75,6 +76,12 @@ Route::middleware(['web'])->group(function () {
         Route::get('in-patient/{id}','destroy')->name('in.patient.destroy');
     });
 
+
+    Route::controller(CompanyController::class)->group(function () {
+        Route::get('/company', 'index')->name('com.index');
+        Route::post('/company', 'store')->name('com.store');
+        Route::get('/company/{id}', 'destroy')->name('com.destroy');
+    });
 
     Route::controller(MedicineCategoryController::class)->group(function () {
         Route::get('/medicine-category', 'index')->name('mc.index');

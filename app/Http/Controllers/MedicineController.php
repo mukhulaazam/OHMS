@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use App\Models\Medicine;
+use App\Models\MedicineCategory;
 use Illuminate\Http\Request;
 
 class MedicineController extends Controller
@@ -11,8 +13,11 @@ class MedicineController extends Controller
 
     public function index()
     {
-        $medicines = Medicine::all();
-        return view('back-end.medicine.index', compact('medicines'));
+        $medicines = Medicine::with('company')->latest()->paginate(10);
+        $mc = MedicineCategory::latest()->get();
+        $com =Company::latest()->get();
+//        return $com;
+        return view('back-end.medicine.index', compact('medicines','mc','com'));
     }
 
 
@@ -26,15 +31,11 @@ class MedicineController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        Medicine::create($request->all());
+        return redirect()->route('medicine.index');
     }
 
     /**
