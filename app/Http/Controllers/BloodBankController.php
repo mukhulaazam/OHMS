@@ -2,24 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Company;
-use App\Models\Medicine;
-use App\Models\MedicineCategory;
+use App\Models\BloodBank;
 use Illuminate\Http\Request;
 
-class MedicineController extends Controller
+class BloodBankController extends Controller
 {
-
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $medicines= Medicine::with('company','category')->latest()->paginate(10);
-        $mc = MedicineCategory::latest()->get();
-        $com =Company::latest()->get();
-//        return $com;
-        return view('back-end.medicine.index', compact('medicines','mc','com'));
+        //
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -31,20 +27,24 @@ class MedicineController extends Controller
         //
     }
 
-
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
-        Medicine::create($request->all());
-        return redirect()->route('medicine.index');
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Medicine  $medicine
+     * @param  \App\Models\BloodBank  $bloodBank
      * @return \Illuminate\Http\Response
      */
-    public function show(Medicine $medicine)
+    public function show(BloodBank $bloodBank)
     {
         //
     }
@@ -52,10 +52,10 @@ class MedicineController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Medicine  $medicine
+     * @param  \App\Models\BloodBank  $bloodBank
      * @return \Illuminate\Http\Response
      */
-    public function edit(Medicine $medicine)
+    public function edit(BloodBank $bloodBank)
     {
         //
     }
@@ -64,10 +64,10 @@ class MedicineController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Medicine  $medicine
+     * @param  \App\Models\BloodBank  $bloodBank
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Medicine $medicine)
+    public function update(Request $request, BloodBank $bloodBank)
     {
         //
     }
@@ -75,10 +75,10 @@ class MedicineController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Medicine  $medicine
+     * @param  \App\Models\BloodBank  $bloodBank
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Medicine $medicine)
+    public function destroy(BloodBank $bloodBank)
     {
         //
     }

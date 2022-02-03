@@ -94,6 +94,12 @@ Route::middleware(['web'])->group(function () {
         Route::post('/medicine', 'store')->name('medicine.store');
         Route::get('/medicine/{id}', 'destroy')->name('medicine.destroy');
     });
+
+    Route::controller(MedicineController::class)->group(function () {
+        Route::get('/medicine', 'index')->name('medicine.index');
+        Route::post('/medicine', 'store')->name('medicine.store');
+        Route::get('/medicine/{id}', 'destroy')->name('medicine.destroy');
+    });
 });
 
 

@@ -28,6 +28,7 @@
                 <td>{{$loop->index+1}}</td>
                 <td>{{$m->name }}</td>
                 <td>{{$m->company->name }}</td>
+                <td>{{$m->category->name }}</td>
                 <td>{{$m->generic_name }}</td>
                 <td>{{$m->p_price }}</td>
                 <td>{{$m->s_price }}</td>
