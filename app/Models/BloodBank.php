@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class BloodBank extends Model
 {
@@ -11,9 +12,9 @@ class BloodBank extends Model
 
     protected $guarded = [];
 
-    public function ()
+    public function Inpatient(): BelongsTo
     {
-        
+        return $this->belongsTo(Inpatient::class);
     }
 
 
