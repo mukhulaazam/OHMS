@@ -30,8 +30,9 @@ class CreateInPatientsTable extends Migration
             $table->string('symptoms', 50);
             $table->longText('des');
             $table->dateTime('admission_date', 0);
-            $table->string('case', 110);
-            $table->string('casualty', 10);
+//            $table->string('case', 110);
+            $table->string('casualty');
+            $table->tinyInteger('is_discharged')->default(0);
             $table->tinyInteger('old_patient')->default(0);
             $table->string('reference', 60);
             $table->timestamps();

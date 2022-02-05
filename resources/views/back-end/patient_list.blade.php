@@ -2,9 +2,9 @@
 @section('brad-title','In Patient list')
 @section('content')
     <div class="breadcrumb-area d-flex justify-content-between">
-        <span class="h4 text-bold ">Doctor List</span>
+        <span class="h4 text-bold ">In Patient List</span>
         <button href="#" class="btn btn-primary btn-sm float-right" data-toggle="modal"
-                data-target="#staticBackdrop">Add Patient
+                data-target="#staticBackdrop">Add In Patient
         </button>
     </div>
 
@@ -46,7 +46,7 @@
         <div class="modal-dialog modal-md" style="max-width: 60%">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Out Patient Details</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">In Patient Details</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

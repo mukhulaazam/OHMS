@@ -168,6 +168,26 @@
                 <li class="nav-item">
                     <a href="#" class="collapsed-nav-link nav-link" aria-expanded="false">
                         <span class="icon"><i class='bx bx-cog'></i></span>
+                        <span class="menu-title">Blood Bank</span>
+                    </a>
+                    <ul class="sidemenu-nav-second-level">
+                        <li class="nav-item">
+                            <a href="{{ route('donor.index') }}" class="nav-link">
+                                <span class="icon"><i class='bx bxs-inbox'></i></span>
+                                <span class="menu-title">Donor List</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('blood.index') }}" class="nav-link">
+                                <span class="icon"><i class='bx bxs-inbox'></i></span>
+                                <span class="menu-title">Blood Bank</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="collapsed-nav-link nav-link" aria-expanded="false">
+                        <span class="icon"><i class='bx bx-cog'></i></span>
                         <span class="menu-title">Appointments</span>
                     </a>
                     <ul class="sidemenu-nav-second-level">

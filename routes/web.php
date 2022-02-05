@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\{CompanyController,
+use App\Http\Controllers\{BloodBankController,
+    CompanyController,
+    DonorController,
     HomeController,
     AppointmentController,
     BedController,
@@ -95,10 +97,18 @@ Route::middleware(['web'])->group(function () {
         Route::get('/medicine/{id}', 'destroy')->name('medicine.destroy');
     });
 
-    Route::controller(MedicineController::class)->group(function () {
-        Route::get('/medicine', 'index')->name('medicine.index');
-        Route::post('/medicine', 'store')->name('medicine.store');
-        Route::get('/medicine/{id}', 'destroy')->name('medicine.destroy');
+    // TODO :: Back-end routes start here Blood Group (incomplete)
+    Route::controller(BloodBankController::class)->group(function () {
+        Route::get('/blood', 'index')->name('blood.index');
+        Route::post('/blood', 'store')->name('blood.store');
+        Route::get('/blood/{id}', 'destroy')->name('blood.destroy');
+    });
+
+    // TODO :: Back-end routes start here Donor Group
+    Route::controller(DonorController::class)->group(function () {
+        Route::get('/donor', 'index')->name('donor.index');
+        Route::post('/donor', 'store')->name('donor.store');
+        Route::get('/donor/{id}', 'destroy')->name('donor.destroy');
     });
 });
 

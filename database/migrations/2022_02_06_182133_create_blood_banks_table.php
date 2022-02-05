@@ -16,6 +16,7 @@ class CreateBloodBanksTable extends Migration
         Schema::create('blood_banks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('in_patient_id')->constrained()->onDelete('cascade');
+            $table->foreignId('donor_id')->constrained()->onDelete('cascade');
             $table->string('name')->nullable();
             $table->timestamps();
         });
