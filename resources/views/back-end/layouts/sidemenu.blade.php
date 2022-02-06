@@ -199,20 +199,6 @@
                         </li>
                     </ul>
                 </li>
-{{--                <li class="nav-item">--}}
-{{--                    <a href="#" class="collapsed-nav-link nav-link" aria-expanded="false">--}}
-{{--                        <span class="icon"><i class='bx bx-cog'></i></span>--}}
-{{--                        <span class="menu-title">Doctor</span>--}}
-{{--                    </a>--}}
-{{--                    <ul class="sidemenu-nav-second-level">--}}
-{{--                        <li class="nav-item">--}}
-{{--                            <a href="{{ route('doctor.list') }}" class="nav-link">--}}
-{{--                                <span class="icon"><i class='bx bxs-inbox'></i></span>--}}
-{{--                                <span class="menu-title">List</span>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                </li>--}}
                 <li class="nav-item">
                     <a href="#" class="collapsed-nav-link nav-link" aria-expanded="false">
                         <span class="icon"><i class='bx bx-cog'></i></span>
@@ -234,6 +220,21 @@
                     </ul>
                 </li>
 
+                <li class="nav-item">
+                    <a href="#" class="collapsed-nav-link nav-link" aria-expanded="false">
+                        <span class="icon"><i class='bx bx-cog'></i></span>
+                        <span class="menu-title">Prescription</span>
+                    </a>
+
+                    <ul class="sidemenu-nav-second-level">
+                        <li class="nav-item">
+                            <a href="{{route('prescription.index')}}" class="nav-link">
+                                <span class="icon"><i class='bx bxs-badge-check'></i></span>
+                                <span class="menu-title">Prescription List</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="nav-item">
                     <a href="#" class="collapsed-nav-link nav-link" aria-expanded="false">
                         <span class="icon"><i class='bx bx-cog'></i></span>

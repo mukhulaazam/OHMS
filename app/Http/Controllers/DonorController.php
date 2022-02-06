@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class DonorController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function index()
     {
@@ -73,14 +77,14 @@ class DonorController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Donor  $donor
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Donor $donor)
+
+    public function destroy($id)
     {
-        //
+        try {
+            Donor::findOrFail($id)->delete();
+            return redirect()->back()->with('success', 'Donor Deleted Successfully');
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 }

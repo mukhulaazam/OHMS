@@ -12,6 +12,7 @@ class Doctor extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
     protected $guard = 'admin';
+    protected $appends = ['serial_no'];
 
     /**
      * The attributes that are mass assignable.
@@ -38,6 +39,12 @@ class Doctor extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function getSerialNoAttribute()
+    {
+        return "HOSDR" . "-" . sprintf("%05d", $this->attributes['id']);
+    }
 
     public function department()
     {

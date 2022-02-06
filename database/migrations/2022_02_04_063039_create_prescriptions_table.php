@@ -16,10 +16,10 @@ class CreatePrescriptionsTable extends Migration
         Schema::create('prescriptions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('doctor_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('out_patient_id')->constrained()->cascadeOnDelete();
-            $table->date('date');
-            $table->longText('history');
-            $table->longText('diagnosis');
+            $table->foreignId('in_patient_id')->constrained()->cascadeOnDelete();
+            $table->date('date')->nullable();
+            $table->integer('age')->nullable();
+            $table->longText('history')->nullable();
             $table->timestamps();
         });
     }

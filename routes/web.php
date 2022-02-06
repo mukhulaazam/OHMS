@@ -15,7 +15,8 @@ use App\Http\Controllers\{BloodBankController,
     DepartmentController,
     MedicineCategoryController,
     MedicineController,
-    OutPatientController};
+    OutPatientController,
+    PrescriptionController};
 
 Route::get('/', function () {
     return view('front-end.index');
@@ -109,6 +110,13 @@ Route::middleware(['web'])->group(function () {
         Route::get('/donor', 'index')->name('donor.index');
         Route::post('/donor', 'store')->name('donor.store');
         Route::get('/donor/{id}', 'destroy')->name('donor.destroy');
+    });
+
+    Route::controller(PrescriptionController::class)->group(function () {
+        Route::get('/prescriptions', 'index')->name('prescription.index');
+        Route::get('/prescription', 'create')->name('prescription.create');
+        Route::post('/prescriptions', 'store')->name('prescription.store');
+        Route::get('/prescriptions/{id}', 'destroy')->name('prescription.destroy');
     });
 });
 
