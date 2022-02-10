@@ -57,6 +57,17 @@
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
+                            <label for="patient_id" class=" ">Date</label>
+                            <div class="">
+                                <input type="date" name="date" class="form-control form-control-sm">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
                             <label for="">Diagnosis List</label>
                             <table class="table table-striped table-bordered">
                                 <tr>

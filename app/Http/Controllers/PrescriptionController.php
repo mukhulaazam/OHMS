@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Doctor;
 use App\Models\InPatient;
+use App\Models\PrescribedMedicine;
 use App\Models\Prescription;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,11 @@ class PrescriptionController extends Controller
 
     public function index()
     {
-        return view('back-end.prescription.index');
+        $pres = Prescription::with(['doctor', 'inpatient','diagnosis'])
+            ->latest()
+            ->paginate(10);
+
+        return view('back-end.prescription.index', compact('pres'));
     }
 
 
@@ -22,9 +27,8 @@ class PrescriptionController extends Controller
             ->latest()
             ->get();
         $doc = Doctor::latest()->get();
-        return view('back-end.prescription.create', compact('ip','doc'));
+        return view('back-end.prescription.create', compact('ip', 'doc'));
     }
-
 
 
     public function store(Request $request)
@@ -39,22 +43,26 @@ class PrescriptionController extends Controller
 //        ]);
 
         try {
-            $p = Prescription::create($request->all());
-            return $p;
+            $p = new Prescription();
+            $p->doctor_id = $request->doctor_id;
+            $p->in_patient_id = $request->in_patient_id;
+            $p->age = $request->age;
+            $p->date = $request->date;
+            $p->save();
 
-//            if ($prescription->save()){
-//               for ($i=0; $i<($request->row_no); $i++){
-//                   $disgonosis[] = [
-//                       'prescription_id' => $prescription->id,
-//                       'diagnosis' => $request->diagnosis_name[$i],
-//                       'instructions' => $request->instructions[$i],
-//                   ];
-//               }
-//               if (isset($disgonosis)){
-//                   $prescription->diagnosis()->createMany($disgonosis);
-//               }
-//                return redirect()->route('prescription.index')->with('success', 'Prescription created successfully');
-//            }
+            if ($p->save()) {
+                if (isset($request->row_no)) {
+                    foreach ($request->diagnosis_name as $key => $dm) {
+                        $data[] = [
+                            'prescription_id' => $p->id,
+                            'diagnosis_name' => $request->diagnosis_name[$key],
+                            'instructions' => $request->instructions[$key]
+                        ];
+                    }
+                    $pp = PrescribedMedicine::insert($data);
+                }
+            }
+            return redirect()->route('prescription.index')->with('success', 'Prescription created successfully');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Something went wrong');
         }

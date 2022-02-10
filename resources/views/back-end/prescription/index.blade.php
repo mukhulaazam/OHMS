@@ -10,34 +10,34 @@
         <thead>
         <tr>
             <th>Sl No.</th>
-            <th>Bed Category</th>
-            <th>Bed Number</th>
-            <th>Bed Floor</th>
-            <th>Description</th>
+            <th>Name</th>
+            <th>Doctor</th>
+            <th>Medicine</th>
             <th>Action</th>
         </tr>
         </thead>
         <tbody>
-{{--        @forelse($b as $bd)--}}
-{{--            <tr>--}}
+        @forelse($pres as $pr)
+            <tr>
 
-{{--                <td>{{$loop->index+1}}</td>--}}
-{{--                <td>{{$bd->bed_category->name }}</td>--}}
-{{--                <td>{{$bd->name}}</td>--}}
-{{--                <td>{{$bd->bed_category->floors->name}}</td>--}}
-{{--                <td>{{$bd->des }}</td>--}}
-{{--                <td>--}}
-{{--                    <a href="#" class="btn btn-warning btn-sm"--}}
-{{--                       data-toggle="modal"--}}
-{{--                       data-target="#staticBackdropEdit"><span class="bx bxs-edit-alt"></span></a>--}}
-{{--                    <a href="{{route('b.destroy',['id' => $bd->id])}}" id="staticBackdropEdit"--}}
-{{--                       onclick="alert('Are you sure?')" class="btn btn-danger btn-sm"><span--}}
-{{--                            class="bx bxs-trash-alt"></span></a>--}}
-{{--                </td>--}}
-{{--                @empty--}}
-{{--                    <td>Sorry! No Bed Category found</td>--}}
-{{--            </tr>--}}
-{{--        @endforelse--}}
+                <td>{{$loop->index+1}}</td>
+                <td>{{$pr->inpatient->name }}</td>
+                <td>Dr. {{$pr->doctor->name}} {{Str::upper($pr->doctor->degree)}}</td>
+                <td>@foreach($pr->diagnosis as $key => $x)
+                    {{$x->diagnosis_name}}
+                    @endforeach</td>
+                <td>
+                    <a href="#" class="btn btn-warning btn-sm"
+                       data-toggle="modal"
+                       data-target="#staticBackdropEdit"><span class="bx bxs-edit-alt"></span></a>
+                    <a href="{{route('prescription.destroy',['id' => $pr->id])}}" id="staticBackdropEdit"
+                       onclick="alert('Are you sure?')" class="btn btn-danger btn-sm"><span
+                            class="bx bxs-trash-alt"></span></a>
+                </td>
+                @empty
+                    <td>Sorry! No Bed Category found</td>
+            </tr>
+        @endforelse
         </tbody>
 
     </table>
