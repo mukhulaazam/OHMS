@@ -19,7 +19,6 @@
         <tbody>
         @forelse($pres as $pr)
             <tr>
-
                 <td>{{$loop->index+1}}</td>
                 <td>{{$pr->inpatient->name }}</td>
                 <td>Dr. {{$pr->doctor->name}} {{Str::upper($pr->doctor->degree)}}</td>
